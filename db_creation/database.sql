@@ -70,14 +70,20 @@ CREATE TABLE pitch_18_24 (
 
 );
 
-
 COPY pitch_18_24
 FROM 'C:/Database/data/db/pitch_18_24.csv'
 WITH (FORMAT CSV, HEADER TRUE, DELIMITER ',');
 
-DROP TABLE swing_value_18_24
 
-CREATE TABLE swing_value_18_24 (
+COPY pitch_18_24
+FROM 'C:/Database/data/db/pitch_15_18.csv'
+WITH (FORMAT CSV, HEADER TRUE, DELIMITER ',');
+
+ALTER TABLE pitch_18_24 RENAME TO pitch_15_24;
+
+DROP TABLE swing_value_18_24;
+
+CREATE TABLE swing_value_15_24 (
 	Name VARCHAR(100),
 	Season INT,
 	Chase_Value DECIMAL(7,4),
@@ -88,8 +94,8 @@ CREATE TABLE swing_value_18_24 (
 	Offspeed_Value DECIMAL(7,4)
 );
 
-COPY swing_value_18_24
-FROM 'C:/Database/data/db/swing_values.csv'
+COPY swing_value_15_24
+FROM 'C:/Database/data/db/swing_values_15.csv'
 WITH (FORMAT CSV, HEADER TRUE, DELIMITER ',');
 
 
